@@ -1,0 +1,30 @@
+---
+
+# jenkins variables
+project_name: docker-nano-wallet
+external_type: github_commit
+release_type: prerelease
+release_tag: dev
+ls_branch: dev
+use_qemu: true
+repo_vars:
+  - EXT_GIT_BRANCH = 'master'
+  - EXT_USER = 'linuxserver'
+  - EXT_REPO = 'nano-wallet'
+  - BUILD_VERSION_ARG = 'WALLET_VERSION'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-nano-wallet'
+  - CONTAINER_NAME = 'nano-wallet'
+  - DOCKERHUB_IMAGE = 'linuxserver/nano-wallet'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/nano-wallet'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/nano-wallet'
+  - DIST_IMAGE = 'alpine'
+  - MULTIARCH='true'
+  - CI='true'
+  - CI_WEB='true'
+  - CI_PORT='80'
+  - CI_SSL='false'
+  - CI_DELAY='60'
+  - CI_DOCKERENV='TZ=US/Pacific'
+  - CI_AUTH='user:password'
+  - CI_WEBPATH='#/localhost'
