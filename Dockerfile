@@ -1,5 +1,5 @@
 # build stage
-FROM lsiobase/alpine:3.11 as build
+FROM lsiobase/alpine:3.12 as build
 
 ARG WALLET_VERSION
 
@@ -22,7 +22,7 @@ RUN \
  npm run build
 
 # runtime stage
-FROM lsiobase/alpine:3.11
+FROM lsiobase/alpine:3.12
 
 # set version label
 ARG BUILD_DATE
