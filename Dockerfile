@@ -1,5 +1,5 @@
 # build stage
-FROM lsiobase/alpine:3.12 as build
+FROM ghcr.io/linuxserver/baseimage-alpine:3.12 as build
 
 ARG WALLET_VERSION
 
@@ -22,7 +22,7 @@ RUN \
  npm run build
 
 # runtime stage
-FROM lsiobase/alpine:3.12
+FROM ghcr.io/linuxserver/baseimage-alpine:3.12
 
 # set version label
 ARG BUILD_DATE
