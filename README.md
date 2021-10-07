@@ -33,6 +33,7 @@ Find us at:
 [![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-nano-wallet.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-nano-wallet/releases)
 [![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitHub%20Package&logo=github)](https://github.com/linuxserver/docker-nano-wallet/packages)
 [![GitLab Container Registry](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab)](https://gitlab.com/linuxserver.io/docker-nano-wallet/container_registry)
+[![Quay.io](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/nano-wallet)
 [![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/nano-wallet.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/linuxserver/nano-wallet)
 [![Docker Stars](https://img.shields.io/docker/stars/linuxserver/nano-wallet.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/linuxserver/nano-wallet)
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-nano-wallet%2Fjob%2Fdev%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-nano-wallet/job/dev/)
@@ -48,7 +49,7 @@ This container is a simple nginx wrapper for the light wallet located [here](htt
 
 Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
 
-Simply pulling `ghcr.io/linuxserver/nano-wallet` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
+Simply pulling `lscr.io/linuxserver/nano-wallet` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
 The architectures supported by this image are:
 
@@ -77,7 +78,7 @@ Here are some example snippets to help you get started creating a container.
 version: "2.1"
 services:
   nano-wallet:
-    image: ghcr.io/linuxserver/nano-wallet
+    image: lscr.io/linuxserver/nano-wallet
     container_name: nano-wallet
     ports:
       - 80:80
@@ -91,7 +92,7 @@ docker run -d \
   --name=nano-wallet \
   -p 80:80 \
   --restart unless-stopped \
-  ghcr.io/linuxserver/nano-wallet
+  lscr.io/linuxserver/nano-wallet
 ```
 
 ## Parameters
@@ -132,7 +133,7 @@ We publish various [Docker Mods](https://github.com/linuxserver/docker-mods) to 
 * container version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' nano-wallet`
 * image version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' ghcr.io/linuxserver/nano-wallet`
+  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' lscr.io/linuxserver/nano-wallet`
 
 ## Updating Info
 
@@ -150,7 +151,7 @@ Below are the instructions for updating containers:
 
 ### Via Docker Run
 
-* Update the image: `docker pull ghcr.io/linuxserver/nano-wallet`
+* Update the image: `docker pull lscr.io/linuxserver/nano-wallet`
 * Stop the running container: `docker stop nano-wallet`
 * Delete the container: `docker rm nano-wallet`
 * Recreate a new container with the same docker run parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
@@ -185,7 +186,7 @@ cd docker-nano-wallet
 docker build \
   --no-cache \
   --pull \
-  -t ghcr.io/linuxserver/nano-wallet:latest .
+  -t lscr.io/linuxserver/nano-wallet:latest .
 ```
 
 The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
